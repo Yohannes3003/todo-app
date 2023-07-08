@@ -1,13 +1,207 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+
+html {
+  min-height: 100vmin;
+  background-image: url(/Gambar/blue\ gradient.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  color: #fff;
+}
+
+.content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+/* Include the padding and border in an element's total width and height */
+* {
+  box-sizing: border-box;
+}
+
+/* Remove margins and padding from the list */
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the list items */
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  margin-bottom: 10px;
+  background: #1e1d1d;
+  font-size: 18px;
+  list-style-type: none;
+  transition: 0.2s;
+  font-family: 'Poppins', sans-serif;
+
+  /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Set all odd list items to a different color (zebra-stripes) */
+ul li:nth-child(odd) {
+  background: #1e1d1d;
+}
+
+/* Darker background-color on hover */
+/* ul li:hover {
+  background: #717174;
+} */
+
+/* When clicked on, add a background color and strike out text */
+ul li.checked {
+  background: #49b0d8;
+  color: #ebe6e6;
+  text-decoration: line-through;
+}
+li .fa-check-circle {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+}
+
+li .fa-circle-thin {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+}
+/* Add a "checked" mark when clicked on */
+/* ul li.checked::before {
+  content: '';
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+} */
+
+li.editing {
+  background-color: #fff;
+  color: #333;
+}
+
+li.editing input {
+  border: 1px solid #f4f2f2;
+  padding: 4px 10px;
+  font-size: 16px;
+  margin-right: 10px;
+  margin-top: -4px;
+  height: 29px;
+  width: 595px;
+}
+
+li.editing .fa-check {
+  cursor: pointer;
+  margin-left: 10px;
+  color: #888;
+}
+li.editing .fa-times {
+  cursor: pointer;
+  margin-left: 10px;
+  color: #888;
+}
+
+li.editing .fa-check:hover {
+  color: #1ef129;
+}
+li.editing .fa-times:hover {
+  color: #ef1111;
+}
+
+.reminder {
+  position: absolute;
+  position: absolute;
+  margin-left: 425px;
+  top: 0;
+  padding: 12px;
+}
+/* Style the close button */
+.pencil {
+  position: absolute;
+  margin-left: 600px;
+  top: 0;
+  padding: 12px;
+}
+.pencil:hover {
+  background-color: #f4b119;
+}
+
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px;
+}
+
+.close:hover {
+  background-color: #e74c3c;
+}
+
+/* Style the header */
+.header {
+  padding: 30px 40px;
+  color: white;
+  text-align: center;
+  font-size: x-large;
+  background-image: url(/Gambar/blue\ gradient.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Clear floats after the header */
+.header:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.date {
+  margin-top: 10px;
+}
+
+/* Style the input */
+input {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  width: 85%;
+  margin-right: 10px;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
+/* Style the "Add" button */
+.add-button {
+  margin-top: 10px;
+  padding-top: 8px;
+  padding-bottom: 10px;
+  width: 13%;
+  background: #d9d9d9;
+  color: #4f4f4f;
+  float: left;
+  text-align: center;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+}
+
+.add-button:hover {
+  background-color: #bbb;
 }
