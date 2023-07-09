@@ -48,15 +48,85 @@ class TodoList extends Component {
   render() {
     const { todos } = this.state;
     const { setRefresh } = this.props;
+    const todoItems = todos.map((todo) => <TodoItem todo={todo} key={todo.id} setRefresh={setRefresh} />);
 
+    const todoListObject = {
+      //object
+      title: 'My Todo List',
+      items: todoItems,
+    };
     return (
-      <ul id="todo-list">
-        {todos.map((todo) => (
-          <TodoItem todo={todo} key={todo.id} setRefresh={setRefresh} />
-        ))}
-      </ul>
+      <div>
+        <h1>{todoListObject.title}</h1>
+        <ul id="todo-list">
+          {todos.map((todo) => (
+            <TodoItemPolymorphic todo={todo} key={todo.id} setRefresh={setRefresh} />
+          ))}
+        </ul>
+      </div>
     );
   }
+}
+
+class TodoItemPolymorphic extends TodoItem {
+  // polymorphism
+  updateTodo = () => {
+    if (typeof this.props.todo !== 'undefined') {
+      // Implementasi untuk kasus di mana todo diberikan
+      const { todo, setRefresh } = this.props;
+      const { editedTitle } = this.state;
+
+      const updatedTodo = { ...todo, title: editedTitle };
+
+      fetch('http://localhost:8000/todos/' + todo.id, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedTodo),
+      })
+        .then((response) => {
+          if (response.ok) {
+            console.log('todo updated.');
+            setRefresh(true);
+            this.setState({ isEditing: false });
+          } else {
+            throw new Error('Failed to update todo.');
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } else {
+      // Implementasi untuk kasus default jika todo tidak diberikan
+      console.log('No todo provided for updateTodo.');
+    }
+  };
+
+  deleteTodo = () => {
+    if (typeof this.props.todo !== 'undefined') {
+      // Implementasi untuk kasus di mana todo diberikan
+      const { todo, setRefresh } = this.props;
+
+      fetch('http://localhost:8000/todos/' + todo.id, {
+        method: 'DELETE',
+      })
+        .then((response) => {
+          if (response.ok) {
+            console.log('todo deleted.');
+            setRefresh(true);
+          } else {
+            throw new Error('Failed to delete todo.');
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } else {
+      // Implementasi untuk kasus default jika todo tidak diberikan
+      console.log('No todo provided for updateTodo.');
+    }
+  };
 }
 
 export default TodoList;
