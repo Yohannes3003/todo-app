@@ -2,7 +2,7 @@
 
 html {
   min-height: 100vmin;
-  background-image: url(/Gambar/maxresdefault.jpg);
+  background-image: url(/Gambar/blue\ gradient.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -33,7 +33,7 @@ ul li {
   position: relative;
   padding: 12px 8px 12px 40px;
   margin-bottom: 10px;
-  background: #000000;
+  background: #1e1d1d;
   font-size: 18px;
   list-style-type: none;
   transition: 0.2s;
@@ -48,7 +48,7 @@ ul li {
 
 /* Set all odd list items to a different color (zebra-stripes) */
 ul li:nth-child(odd) {
-  background: #000000;
+  background: #1e1d1d;
 }
 
 /* Darker background-color on hover */
@@ -58,7 +58,7 @@ ul li:nth-child(odd) {
 
 /* When clicked on, add a background color and strike out text */
 ul li.checked {
-  background: #f4b119;
+  background: #49b0d8;
   color: #ebe6e6;
   text-decoration: line-through;
 }
@@ -135,7 +135,7 @@ li.editing .fa-times:hover {
   padding: 12px;
 }
 .pencil:hover {
-  background-color: #868a8c;
+  background-color: #f4b119;
 }
 
 .close {
@@ -155,6 +155,7 @@ li.editing .fa-times:hover {
   color: white;
   text-align: center;
   font-size: x-large;
+  background-image: url(/Gambar/blue\ gradient.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -187,7 +188,7 @@ input {
 
 /* Style the "Add" button */
 .add-button {
-  margin-top: 0.5px;
+  margin-top: 10px;
   padding-top: 8px;
   padding-bottom: 10px;
   width: 13%;
