@@ -58,6 +58,11 @@ class TodoList extends Component {
     return (
       <div>
         <h1>{todoListObject.title}</h1>
+        <ul>
+          {todos.map((todo) => (
+            <TodoItem todo={todo} key={todo.id} setRefresh={setRefresh} />
+          ))}
+        </ul>
         <ul id="todo-list">
           {todos.map((todo) => (
             <TodoItemPolymorphic todo={todo} key={todo.id} setRefresh={setRefresh} />
